@@ -22,6 +22,8 @@ def fetch_all_course_data():
     concatenated_course_data_copy = all_courses_df.copy()
     concatenated_course_data_copy = concatenated_course_data_copy[concatenated_course_data_copy['course_title'].apply(lambda x: all(ord(char) < 128 for char in x))]
 
+    concatenated_course_data_copy.reset_index(drop=True, inplace=True)
+    
     return concatenated_course_data_copy
 
 all_courses_data = fetch_all_course_data()
